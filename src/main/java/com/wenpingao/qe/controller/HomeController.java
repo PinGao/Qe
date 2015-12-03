@@ -17,7 +17,6 @@ public class HomeController {
 
     @RequestMapping(value = "/index")
     public String index(ModelMap map) throws Exception{
-
         return "Home/index";
     }
 
