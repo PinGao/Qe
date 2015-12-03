@@ -5,9 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,11 +16,9 @@ import java.util.List;
 public class HomeController {
 
     @RequestMapping(value = "/index")
-    public void index(HttpServletRequest request,HttpServletResponse response) throws Exception{
-        PrintWriter writer = response.getWriter();
-        writer.print("Home/index");
-        writer.flush();
-        writer.close();
+    public String index(ModelMap map) throws Exception{
+
+        return "Home/index";
     }
 
     @RequestMapping(value = "/demo")
