@@ -18,6 +18,9 @@ public class HomeController {
         PrintWriter writer = response.getWriter();
         writer.print("Home/index");
         writer.flush();
+
+
+
         writer.close();
     }
 }
