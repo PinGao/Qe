@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 加载属性文件 -->
+    <properties resource="db.properties">
+        <!--在这里还可以配置一些属性名和属性值 :优先加载:建议不要在这里定义属性,要在文件中定义(属性名要有意义)-->
+        <property name="" value=""/>
+    </properties>
+    <settings>
+	    <!--  开启延迟加载-->
+	    <setting name="lazyLoadingEnabled" value="true"/>
+	    <setting name="aggressiveLazyLoading" value="false"/>
+	</settings>
+    <typeAliases>
+     <!-- 批量定义表名:需要指定包名,mybatis 会自动为我们定义以类名为名称的别名-->
+     <package name="com.wenpingao.qe.pojo"/>
+     </typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.user}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 加载映射文件 -->
+	<mappers>	
+		<!-- 批量加载 -->		
+		<package name="com.wenpingao.qe.mapper"/>
+	</mappers>
+</configuration>
